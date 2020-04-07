@@ -13,9 +13,9 @@ void init(){
 
 void display(){
     for(int i = 1; i<=k;i++ ){
-        cout<<a[i]<<" ";
+        cout<<a[i];
     }
-    cout<<endl;
+    cout<<" ";
 }
 
 bool isFinal(){
@@ -37,11 +37,16 @@ void genNext(){
 }
 
 int main(){
-    init();
-    display();
-    while(!isFinal()){
-        genNext();
+    int count;
+    cin>>count;
+    while(count--){
+        init();
         display();
+        while(!isFinal()){
+            genNext();
+            display();
+        }
+        cout<<endl;
     }
     return 0;
 }
