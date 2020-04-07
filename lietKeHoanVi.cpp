@@ -20,9 +20,9 @@ void swap(int &a, int &b){
 
 void display(){
     for(int i = 1;i<=n;i++){
-        cout<<a[i]<<" ";
+        cout<<a[i];
     }
-    cout<<endl;
+    cout<<" ";
 }
 
 void genNext(){
@@ -34,7 +34,7 @@ void genNext(){
         while(a[k]<a[j]) k--;
         swap(a[k],a[j]);
         int l = j+1;
-        int r = n -1;
+        int r = n;
         while(l<r){
             swap(a[l],a[r]);
             l++;
@@ -45,11 +45,16 @@ void genNext(){
 }
 
 int main(){
-    init();
-    while(!isFinal){
-        display();
-        genNext();
+    int count;
+    cin>>count;
+    while(count --){
+        init();
+        while(!isFinal){
+            display();
+            genNext();
+        }
+        cout<<endl;
+        isFinal = false;
     }
-
     return 0;
 }
