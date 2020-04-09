@@ -1,25 +1,38 @@
-//Chuyen tu ma tran ke ve danh sach ke
+//Chuyen tu danh sach canh sang ma tran ke
 #include <iostream>
 #include <fstream>
 #include <vector>
 using namespace std;
 
+int n,m;
 int a[50][50];
+int inpArr[50][2];
 int count[100];
 vector<int> tmp;
-int n;
 
-ifstream inp("maTranKe.inp",ios::in);
-ofstream outdsk("danhSachKe.out",ios::out);
+ifstream inp("danhSachCanh.inp",ios::in);
 
 void input(){
-    inp>>n;
-    for(int i = 1;i<=n;i++){
-        for(int j = 1;j<=n;j++) inp>>a[i][j];
+    inp>>n>>m;
+    for(int i = 1;i<=m;i++){
+        for(int j = 1;j<=2;j++){
+            inp>>inpArr[i][j]; 
+        }
+        a[inpArr[i][1]][inpArr[i][2]] = 1;
+        a[inpArr[i][2]][inpArr[i][1]] = 1;
     }
 }
 
-void output(){
+void displayMaTran(){
+    for(int i = 1;i<=n;i++){
+        for(int j = 1;j<=n;j++){
+            cout<<a[i][j]<<" ";
+        }
+        cout<<endl;
+    }
+}
+
+void displayDanhSachKe(){
     for(int i = 1;i<=n;i++){
         for(int j = 1;j<=n;j++){
             if(a[i][j]) {
@@ -28,22 +41,24 @@ void output(){
             }
         }
     }
-    outdsk<<n<<endl;
+    cout<<"Danh sach ke: "<<endl;
+    cout<<n<<endl;
     int tg = 0;
     for(int i= 1;i<=n;i++){
         tg += count[i];
-        outdsk<<tg<<" ";
+        cout<<tg<<" ";
         for(int j = 0;j<count[i];j++){
-            outdsk<<tmp.front()<<" ";
+            cout<<tmp.front()<<" ";
             tmp.erase(tmp.begin(),tmp.begin()+1);
         }
-        outdsk<<endl;
+        cout<<endl;
     }
 }
 
 int main(){
     input();
-    output();
-    cout<<"Done!"<<endl;
+    cout<<"Ma tran ke: "<<endl;
+    displayMaTran();
+    displayDanhSachKe();
     return 0;
 }
