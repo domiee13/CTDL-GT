@@ -3,7 +3,7 @@
 using namespace std;
 
 int n;
-bool used[100] = {false};
+bool chuaxet[100] = {false};
 int a[100];
 
 void display(){
@@ -15,12 +15,12 @@ void display(){
 
 void Try(int k){
     for(int i = 1;i<=n;i++){
-        if(!used[i]){
+        if(!chuaxet[i]){
             a[k] = i;
-            used[i] = true;
+            chuaxet[i] = true;
             if(k==n) display();
             else Try(k+1);
-            used[i] = false;
+            chuaxet[i] = false;
         }
     }
 }

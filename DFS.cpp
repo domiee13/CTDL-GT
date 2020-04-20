@@ -5,7 +5,7 @@
 using namespace std;
 
 int a[MAX][MAX],n;
-bool used[MAX] = {true};
+bool chuaxet[MAX] = {true};
 
 void init(){
     int i,j;
@@ -13,7 +13,7 @@ void init(){
     inp>>n;
     cout<<"So dinh cua do thi la: "<<n<<endl;
     for(int i = 1;i<=n;i++){
-        used[i] = true;
+        chuaxet[i] = true;
         for(int j = 1;j<=n;j++){
             inp>>a[i][j];
             cout<<a[i][j]<<" ";

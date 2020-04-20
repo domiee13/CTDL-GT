@@ -10,19 +10,26 @@ Output:
  Đưa ra kết quả mỗi test theo từng dòng.
 */
 
-#include <iostream>
-
+// #include <iostream>
+// #include <algorithm>
+#include <bits/stdc++.h>
 using namespace std;
 
 string s;
 int a[100] = {0};
-bool used[100] = {false};
+bool chuaxet[100] = {true};
+
+void init(){
+    for(int i = 1;i<=s.size();i++){
+        a[i] = 0;
+    }
+}
 
 void Try(int k){
-    for(int i = 1;i<=s.size();i++){
-        if(used[i]){
+    for(int i = 0;i<s.size();i++){
+        if(chuaxet[i]){
             a[k] = i;
-            used[i] =true;
+            chuaxet[i] =false;
             if(k==s.size()){
                 for(int l = 1;l<=s.size();l++){
                     cout<<s[a[l]];
@@ -30,7 +37,7 @@ void Try(int k){
                 cout<<" ";
             }
             else Try(k+1);
-            used[i] = false;
+            chuaxet[i] = true;
         }
     }
 }
@@ -38,10 +45,13 @@ void Try(int k){
 int main(){
     int t;
     cin>>t;
+    cin.ignore();
     while(t--){
-        cin.ignore();
+        memset(chuaxet,true,sizeof(chuaxet));
         getline(cin,s);
+        sort(s.begin(),s.end());
         Try(1);
+        cout<<endl;
     }
     return 0;
 }
