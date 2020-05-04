@@ -48,7 +48,7 @@ int main(){
         for(int i =0;i<b.size();i++){
             if(b[i]=='5') b[i] = '6';
         }
-        cout<<sum()<<endl;
+        cout<<sum()<<" ";
     }
     return 0;
 }
