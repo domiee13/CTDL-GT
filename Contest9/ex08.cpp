@@ -1,41 +1,46 @@
 #include <bits/stdc++.h>
 
 using namespace std;
+
 vector<int> ke[1005];
 bool chuaxet[1005];
-// bool chuaxet[1005]= {true}; //Khong memset o duoi se sai ?
 
-void DFS(int u){
-    cout<<u<<" ";
-    chuaxet[u] = false;
-    for(int i = 0;i<ke[u].size();i++){
-        if(chuaxet[ke[u][i]]){
-            DFS(ke[u][i]);
+void BFS(int u){
+    queue<int> q;
+    int s;
+    q.push(u);
+    chuaxet[u]= false;
+    while(!q.empty()){
+        s = q.front();
+        q.pop();
+        cout<<s<<" ";
+        for(int j=0;j<ke[s].size();j++){
+            if(chuaxet[ke[s][j]]){
+                q.push(ke[s][j]);
+                chuaxet[ke[s][j]] = false;
+            }
         }
     }
 }
 
 int main(){
-    ios_base::sync_with_stdio(0);cin.tie(0);
     int t;
     cin>>t;
     while(t--){
-        for(int i =0;i<1006;i++){
-            ke[i].clear();
-        }
         memset(chuaxet,true,sizeof(chuaxet));
         int v,e,u;
         cin>>v>>e>>u;
-        ke[v+5];
+        for(int i = 0;i<1001;i++){
+            ke[i].clear();
+        }
         for(int i = 0;i<e;i++){
             int a,b;
             cin>>a>>b;
             ke[a].push_back(b);
             ke[b].push_back(a);
         }
-        DFS(u);
+        BFS(u);
         cout<<endl;
     }
     return 0;
 }
-
