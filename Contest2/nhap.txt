@@ -1,0 +1,53 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int n,k;
+int a[100];
+vector< vector<int> > res;
+
+void backTrack(int pos, int sum, vector<int> v){
+    if(sum>k) return;
+    if(sum==k){
+        res.push_back(v);
+        return;
+    }
+    for(int j = pos;j<n;j++){
+        if(sum+a[j]<=k){
+            v.push_back(a[j]);
+            backTrack(j,sum+a[j],v);
+            v.pop_back();
+        }
+    }
+}
+
+int main(){
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+    int t;
+    cin>>t;
+    while(t--){
+        cin>>n>>k;
+        for(int i = 0;i<n;i++){
+            cin >> a[i];
+        }
+        sort(a,a+n);
+        vector<int> v;
+        v.clear();
+        res.clear();
+        backTrack(0,0,v);
+        if(res.size()==0) cout<<-1;
+        else{
+            //Hien thi ket qua
+            for(int i = 0;i<res.size();i++){
+                cout<<"[";
+                for(int j = 0;j<res[i].size();j++){
+                    if(j==res[i].size()-1) cout<<res[i][j]<<"] ";
+                    else cout<<res[i][j]<<" ";
+                }
+            }
+        }
+        cout<<endl;
+    }
+    return 0;
+}
