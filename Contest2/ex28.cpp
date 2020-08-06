@@ -54,7 +54,7 @@ int main(){
             for(int i = 0;i<res.size();i++){
                 cout<<"[";
                 for(int j=0;j<res[i].size();j++){
-                    if(j==res[i].size()-1) cout<<res[i][j]<<"] ";
+                    if(j==res[i].size()-1) cout<<res[i][j]<<"]";
                     else cout<<res[i][j]<<" ";
                 }
             }
