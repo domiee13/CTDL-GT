@@ -42,8 +42,8 @@ int main(){
         for(int j = 0;j<ke[i].size();j++){
             if(!d[i][ke[i][j]] && !d[ke[i][j]][i]){
                 cout<<i<<" "<<ke[i][j]<<endl;
+                d[i][ke[i][j]] = d[ke[i][j]][i] = 1;
             }
-            d[i][ke[i][j]] = d[ke[i][j]][i] = 1;
         }
     }
     return 0;

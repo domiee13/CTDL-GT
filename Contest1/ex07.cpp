@@ -13,6 +13,7 @@ void init(){
 
 void sinh(){
     int i = k; 
+    //Tim vi tri a[i]!=1    
     while(i>0 && a[i]==1) i--;
     if(i<=0) stop = true;
     else{
