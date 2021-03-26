@@ -19,7 +19,8 @@ void display(){
     for(int i = res.size()-1;i>=0;i--){
         cout<<"[";
         for(int j = 0;j<res[i].size();j++){
-            cout<<res[i][j]<<" ";
+            if(j==res[i].size()-1) cout<<res[i][j];
+            else cout<<res[i][j]<<" ";
         }
         cout<<"] ";
     }

@@ -11,7 +11,7 @@ Output:
  Đưa ra kết quả mỗi test theo từng dòng.
 */
 
-//Y tuong: Sap xep giam dan, lay xen ke cac so => tong nho nhat
+//Y tuong: Sap xep tang dan, lay xen ke cac so => tong nho nhat
 
 #include <iostream>
 #include <vector>

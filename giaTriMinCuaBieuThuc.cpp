@@ -28,26 +28,31 @@ void display(vector<int> a){
 }
 
 int main(){
-    int n;
-    cin>>n;
-    int tmp;
-    vector<int> a;
-    vector<int> b;
-    for(int i = 0;i<n;i++){
-        cin>>tmp;
-        a.push_back(tmp);
+    int t;
+    cin>>t;
+    while(t--){    
+        int n;
+        cin>>n;
+        int tmp;
+        vector<int> a;
+        vector<int> b;
+        for(int i = 0;i<n;i++){
+            cin>>tmp;
+            a.push_back(tmp);
+        }
+        for(int i = 0;i<n;i++){
+            cin>>tmp;
+            b.push_back(tmp);
+        }
+        sort(a.begin(),a.end(),greater<int>());
+        sort(b.begin(),b.end());
+        // display(a);
+        // display(b);
+        int res=0;
+        for(int i = 0;i<n;i++){
+            res+= a[i]*b[i];
+        }
+        cout<<res<<endl;
     }
-    for(int i = 0;i<n;i++){
-        cin>>tmp;
-        b.push_back(tmp);
-    }
-    sort(a.begin(),a.end(),greater<int>());
-    sort(b.begin(),b.end());
-    // display(a);
-    // display(b);
-    int res;
-    for(int i = 0;i<n;i++){
-        res+= a[i]*b[i];
-    }
-    cout<<res<<endl;
+    return 0;
 }
